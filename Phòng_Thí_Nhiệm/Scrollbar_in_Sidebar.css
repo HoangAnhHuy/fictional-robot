@@ -1,0 +1,78 @@
+*  {
+    font-family: 'poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+body {
+    min-height: 100vh;
+    background: #ddd;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #fff;
+    border-radius: 10px;
+}
+::-webkit-scrollbar-track {
+    background: linear-gradient(-45deg, #1C1678, #8576FF);
+}
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background: linear-gradient(-45deg, #1C1678, #8576FF);
+    display: flex;
+    flex-direction: column;
+    z-index: 100;
+    padding: 20px 0px 0 20px;
+}
+header h2 {
+    font-size: 32px;
+    color: #fff;
+    padding-bottom: 5px;
+    text-align: center;
+}
+
+.scrollbox {
+    overflow: auto;
+    padding-right: 10px;
+    visibility: hidden;
+}
+
+.scrollbox::-webkit-scrollbar-track {
+   background: transparent !important;
+}
+
+.scrollbox-inner,
+.scrollbox:hover {
+    visibility: visible;
+}
+
+.scrollbox-inner p {
+    font-size: 16px;
+    color: #fff;
+}
+footer h2 {
+    font-size: 24px;
+    color: #fff;
+    padding: 15px 0 40px;
+}
+.content {
+    position: relative;
+    left: 280px;
+    width: calc(100% - 280px);
+    height: 100vh;
+}
+
+.content h2 {
+    margin: auto;
+    font-size: 46px;
+    background: linear-gradient(-45deg, #1C1678, #8576FF);
+    -webkit-text-fill-color: transparent;
+    -webkit-background-clip: text;
+}
