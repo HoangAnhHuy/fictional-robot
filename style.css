@@ -19,8 +19,9 @@ html {
     --bg-color: #151965;
     --second-bg-color: #32407B;
     --main-color: #515585;
-    --text-color: #46B5D1;
+    --text-color: #46B5D1; 
 }
+
 
 ::-webkit-scrollbar {
     width: 0.8rem;
@@ -39,14 +40,12 @@ body {
 }
 
 /* Kết thúc các thuộc tính cơ bản của website */
-
+/* Các thuộc tính phía bên phải của header */
 .header_top {
     width: 100%;
     height: 13vh;
     position: fixed !important;
     display: flex;
-    top: 0;
-    left: 0;
     justify-content: start;
     align-items: center;
     gap: 7rem;
@@ -137,6 +136,15 @@ body {
     color: var(--main-color);
     border-bottom: 3px solid var(--main-color);
 }
+
+/* Thanh dropdown của menu about */
+/* .About > .material-symbols-outlined {
+    transition: 0.4s ease;
+}
+.About:hover > .material-symbols-outlined {
+    transform: rotate(180deg);
+    transition: 0.4s ease;
+} */
 .About span {
     display: block;
     position: relative;
@@ -208,72 +216,182 @@ body {
     }
 
 }
-.page h1{
-    font-size: 4rem;
-    color: var(--text-color);
-    font-weight: 670;
-    text-transform: uppercase;
-    padding: 1rem 4rem;
-
-}
-.page hr {
-    width: 30%;
-    border: 2px solid var(--text-color);
-}
-
-.page p {
-    font-size: 1.8rem;
-    color: var(--text-color);
-    padding: 1rem 4rem;
-    margin: 4rem;
-}
-.page-1 {
-    background-position: center;
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-image: linear-gradient(rgba(0,0,0,0.75),rgba(0,0,0,0.75)), url(/img/WebsiteImg/BackgroundVScode2.jpg);
-    padding: 4rem 2rem;
-    position: relative;
-    margin-top: 13vh;
-    width: 100%;
+/* Quy định aside */
+.sidebar {
+    width: 22rem;
     height: 100vh;
+    background: linear-gradient(-45deg, var(--bg-color),var(--second-bg-color));
     display: flex;
-    justify-content: center;
-    align-items: start;
-}
-.image-page-1 {
     flex-direction: column;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+    z-index: -1;
+    padding: 20px 0px 0 20px;
 }
-.image-page-1 button {
-    border: 2px solid var(--text-color);
-    background: var(--main-color);
-    width: 20rem;
-    padding: 1rem;
-    height: 5rem;
-    font-weight: 600;
+
+.scrollbox {
+    overflow: auto;
+    padding-right: 10px;
+    visibility: hidden;
+    margin-top: 13vh;
+}
+
+.scrollbox::-webkit-scrollbar-track {
+   background: transparent !important;
+}
+.scrollbox::-webkit-scrollbar {
+    width: 0.6rem;
+}
+
+.scrollbox-inner,
+.scrollbox:hover {
+    visibility: visible;
+}
+
+.scrollbox-inner p {
+    font-size: 1.4rem;
+    color: var(--text-color);
+}
+
+/* Phần content bên trái */
+
+.sidebar-content {
+    margin-top: 13vh;
+    position: fixed;
+    top: 0;
+    left: 22rem;
+    width: calc(100vw - 22rem);
+    height: 100%;
+    background: linear-gradient(45deg, var(--bg-color), var(--second-bg-color));
+    display: flex;
+    flex-direction: column;
+    z-index: 1;
+}
+.scrollbox-content {
+    overflow: auto;
+    visibility: hidden;
+}
+
+.scrollbox::-webkit-scrollbar-track {
+   background: transparent !important;
+}
+
+.scrollbox-content-inner,
+.scrollbox-content:hover {
+    visibility: visible;
+}
+
+.scrollbox-content-inner p {
     font-size: 1.6rem;
     color: var(--text-color);
-    border-radius: 4rem;
-    cursor: pointer;
-    transition: 0.4s ease;
 }
 
-.image-page-1 button:hover {
-    background: var(--text-color);
-    color: var(--main-color);
-    transition: 0.4s ease;
+.scrollbox-content-inner h3 {
+    font-size: 2.5rem;
+    color: var(--text-color);
 }
-.page-2 {
-    padding: 4rem 2rem;
-    top: 13vh;
-    background: var(--second-bg-color);
-    width: 100%;
-    height: 100vh;
+
+/* Phần item thanh bên phải */
+
+.title-item {
+    padding-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.boxitem {
+    gap: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.item {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 1.6rem;
+    font-weight: 600;
+    line-height: 4.4rem;
+}
+.dropdown-list {
+    padding: 1.3rem 0;
+    border-radius: 1rem;
+    background: var(--second-bg-color);
+    display: none;
+    transition: display 0.5s ease;
+}
+
+.dropdown-item > a {
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0rem 6rem;
+    font-size: 1.4rem;
+    line-height: 4rem;
+    border-radius: 1.5rem;
+    font-weight: 500;
+    transition: 0.4s ease;
+}
+
+.dropdown-item > a:hover {
+    background-color: var(--bg-color);
+    color: var(--main-color);
+    transition: 0.4s ease;
+    border-radius: 2rem;
+}
+.boxitem:hover
+.item
+ {
+    color: var(--main-color);
+}
+.material-symbols-outlined{
+    cursor: pointer;
+}
+.boxitem:hover
+.material-symbols-outlined {
+    color: var(--main-color)
+}
+
+.no-select {
+    -webkit-user-select: none; /* Safari */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* IE10+/Edge */
+    user-select: none; /* Standard syntax */
+}
+
+/* Phần nội dung content */
+
+.page-1 {
+    width: 100%;
+    height: 100vh;
+    background: var(--bg-color);
+    opacity: 0.5;
+}
+.page-2 {
+    width: 100%;
+    height: 100vh;
+    background: var(--second-bg-color);
+    opacity: 0.5;
+}
+
+.breadcrumbs {
+    width: 40rem;
+    height: 5rem;
+    border-bottom-right-radius: 4rem;
+    display: none;
+    padding: 4rem 4rem;
+    justify-content: start;
+    align-items: center;
+    gap: 0.6rem;
+    box-shadow: 0 0 25px var(--second-bg-color);
+}
+.breadcrumbs img {
+    width: 5.5rem;
+    height: 3rem;
+}
+.breadcrumbs a {
+    font-size: 1.4rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--text-color);
 }
